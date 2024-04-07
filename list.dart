@@ -12,4 +12,10 @@ void main() {
 
   scores.removeLast();
   print(scores);
+
+  Set<String> names = {'FraNzY', 'Suji', 'Kriti'};
+  print(names);
+
+  names.add('The Final Boss');
+  print(names);
 }
