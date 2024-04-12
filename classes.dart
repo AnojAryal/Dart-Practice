@@ -43,3 +43,16 @@ class Pizza extends MenuItem {
     return '$title --> $price \n$formattedToppings';
   }
 }
+
+class Collection {
+  String name;
+  List data;
+
+  Collection (this.name, this.data);
+
+  randomItem() {
+    data.shuffle();
+
+    return data[0];
+  } 
+}
