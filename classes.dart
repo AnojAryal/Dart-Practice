@@ -1,15 +1,15 @@
-void main() {
-  var noodles = MenuItem('Chicken noodle', 4.99);
-  var pizza = Pizza(['mushrooms', 'peppers'], 'Cheese Pizza', 5.99);
-
-  print(noodles.title);
-  print(noodles.price);
-
-  print(pizza.title);
+ print(pizza.title);
   print(pizza.price);
 
   print(noodles);
   print(pizza);
+  print(roast);
+  print(burger);
+  
+  var foods = Collection(
+    'Menuu Items',
+    [noodles, pizza, roast, burger]
+  );
 }
 
 class MenuItem {
