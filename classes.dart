@@ -1,4 +1,13 @@
- print(pizza.title);
+void main() {
+  var noodles = MenuItem('Chicken noodle', 4.99);
+  var pizza = Pizza(['mushrooms', 'peppers'], 'Cheese Pizza', 5.99);
+  var roast = MenuItem('Full Chicken roast', 11.99);
+  var burger = MenuItem('Ham Burger', 5.99);
+
+  print(noodles.title);
+  print(noodles.price);
+
+  print(pizza.title);
   print(pizza.price);
 
   print(noodles);
@@ -6,10 +15,13 @@
   print(roast);
   print(burger);
   
-  var foods = Collection(
+  var foods = Collection<MenuItem>(
     'Menuu Items',
     [noodles, pizza, roast, burger]
   );
+  
+  var random = foods.randomItem();
+  print ('this is random food: $random');
 }
 
 class MenuItem {
@@ -44,13 +56,13 @@ class Pizza extends MenuItem {
   }
 }
 
-class Collection {
+class Collection<T> {
   String name;
-  List data;
+  List<T> data;
 
   Collection (this.name, this.data);
 
-  randomItem() {
+  T randomItem() {
     data.shuffle();
 
     return data[0];
