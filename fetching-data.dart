@@ -1,21 +1,18 @@
 import 'package:http/http.dart' as http;
 
 void main() async {
-  final post = await fetchpost();
-  print(post.title);
-  print(post.userId);
-
-} 
-
-Future<Post> fetchpost() {
-  const delay = Duration(seconds: 3);
-
-  return Future.delayed(delay,(){
-    return Post('I am FraNzY', 18);
-  });
+  fetchpost();
 }
 
-class Post{
+fetchpost() async {
+  var url = Uri.https('jsonplaceholder.typicode.com', '/posts/1');
+
+  final response = await http.get(url);
+
+  print(response.body);
+}
+
+class Post {
   String title;
   int userId;
 
