@@ -1,15 +1,21 @@
 import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 void main() async {
-  fetchpost();
+  final post = await fetchpost();
+  
+  print(post.title);
+  print(post.userId);
 }
 
-fetchpost() async {
+Future<Post>fetchpost() async {
   var url = Uri.https('jsonplaceholder.typicode.com', '/posts/1');
 
   final response = await http.get(url);
 
-  print(response.body);
+  Map<String, dynamic> data = convert.jsonDecode(response.body);
+  
+  return Post(data['title'], data['userId']);
 }
 
 class Post {
